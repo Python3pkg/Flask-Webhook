@@ -42,7 +42,7 @@ class WebHook(object):
     """Calls the event handlers handlers attached to the webhook object and returns a json response.
 
     """
-    for key, func in self.handlers.items():
+    for key, func in list(self.handlers.items()):
       try:
         func(request)
       except Exception:
